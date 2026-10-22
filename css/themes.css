@@ -1,0 +1,54 @@
+/* ============================================================
+   ТЕМЫ: переменные для светлой и тёмной версии
+   ============================================================ */
+:root, [data-theme="dark"]{
+  --bg-1:#070c1f;
+  --bg-2:#0b1229;
+  --bg-3:#0f1836;
+  --surface:rgba(19,26,50,.75);
+  --surface-solid:#141b33;
+  --text:#e9eefb;
+  --muted:#8a97b8;
+  --accent:#5b8dff;
+  --accent-2:#7c5cff;
+  --accent-soft:rgba(91,141,255,.12);
+  --gold:#f0c14b;
+  --gold-soft:rgba(240,193,75,.12);
+  --line:rgba(255,255,255,.08);
+  --ok:#3ddc84;
+  --ok-soft:rgba(61,220,132,.12);
+  --bad:#ff5c5c;
+  --bad-soft:rgba(255,92,92,.12);
+  --shadow:0 12px 40px rgba(0,0,0,.4);
+  --shadow-hover:0 20px 60px rgba(91,141,255,.25);
+  --blob-1:rgba(91,141,255,.35);
+  --blob-2:rgba(124,92,255,.28);
+  --blob-3:rgba(240,193,75,.18);
+  --grid:rgba(255,255,255,.03);
+}
+
+[data-theme="light"]{
+  --bg-1:#f4f6fc;
+  --bg-2:#eef2fb;
+  --bg-3:#e8eefb;
+  --surface:rgba(255,255,255,.85);
+  --surface-solid:#ffffff;
+  --text:#0d1533;
+  --muted:#5a6785;
+  --accent:#2f5bdb;
+  --accent-2:#6a3dff;
+  --accent-soft:rgba(47,91,219,.09);
+  --gold:#c9932b;
+  --gold-soft:rgba(201,147,43,.12);
+  --line:rgba(13,21,51,.09);
+  --ok:#1a9f5e;
+  --ok-soft:rgba(26,159,94,.1);
+  --bad:#d92b2b;
+  --bad-soft:rgba(217,43,43,.1);
+  --shadow:0 10px 30px rgba(13,21,51,.08);
+  --shadow-hover:0 18px 50px rgba(47,91,219,.18);
+  --blob-1:rgba(47,91,219,.22);
+  --blob-2:rgba(106,61,255,.15);
+  --blob-3:rgba(201,147,43,.18);
+  --grid:rgba(13,21,51,.035);
+}

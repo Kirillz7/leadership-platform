@@ -1,0 +1,74 @@
+/* ============================================================
+   СТИЛИ АДМИН-ПАНЕЛИ
+   ============================================================ */
+
+/* Атрибут hidden должен побеждать любые display-правила */
+[hidden]{ display: none !important; }
+
+/* Экран входа */
+.login-screen{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+.login-card{max-width:420px;width:100%;padding:32px;text-align:center;}
+.login-card input{
+  width:100%;padding:13px 16px;margin:14px 0 8px;
+  border-radius:12px;border:1px solid var(--line);
+  background:var(--surface-solid);color:var(--text);font:inherit;font-size:15px;
+}
+.login-card input:focus{
+  outline:none;border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-soft);
+}
+.login-error{color:var(--bad);font-size:13.5px;margin:0 0 12px;min-height:1.2em;}
+
+/* Основной layout админки */
+.admin-wrap{padding:32px 0 60px;}
+.admin-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+
+.admin-section{display:none;animation:pageIn .35s ease;}
+.admin-section.is-active{display:block;}
+
+.admin-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;margin-bottom:14px;flex-wrap:wrap;
+}
+.admin-bar h3{margin:0;font-size:18px;}
+
+.admin-list{display:grid;gap:12px;}
+.admin-item{
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:16px;display:grid;gap:10px;position:relative;
+  transition:border-color .2s,box-shadow .2s;
+}
+.admin-item:hover{border-color:var(--accent);box-shadow:var(--shadow);}
+.admin-item__row{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;}
+.admin-item__row label{font-size:12.5px;color:var(--muted);font-weight:600;min-width:80px;}
+.admin-item input,.admin-item textarea,.admin-item select{
+  padding:10px 13px;border-radius:10px;border:1px solid var(--line);
+  background:var(--surface-solid);color:var(--text);font:inherit;font-size:14px;width:100%;
+}
+.admin-item input:focus,
+.admin-item textarea:focus,
+.admin-item select:focus{
+  outline:none;border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-soft);
+}
+.admin-item textarea{
+  min-height:80px;resize:vertical;
+  font-family:'SF Mono',Menlo,Consolas,monospace;font-size:13px;
+}
+.admin-item__actions{display:flex;gap:8px;justify-content:flex-end;margin-top:6px;}
+.admin-item__num{
+  background:var(--gold-soft);color:var(--gold);
+  font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;
+  width:fit-content;
+}
+
+#import-file{
+  padding:10px;border-radius:10px;border:1px dashed var(--line);
+  background:var(--surface-solid);color:var(--text);
+  width:100%;cursor:pointer;margin:10px 0;
+}

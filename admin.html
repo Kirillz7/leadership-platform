@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Админ-панель · Лидерство</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- Анимированный фон -->
+<div class="bg" aria-hidden="true">
+  <div class="bg__blob bg__blob--1"></div>
+  <div class="bg__blob bg__blob--2"></div>
+</div>
+
+<!-- ============================================================
+     ЭКРАН ВХОДА
+     ============================================================ -->
+<div class="login-screen" id="login-screen">
+  <div class="login-card panel">
+    <h2>⚙️ Админ-панель</h2>
+    <p class="muted">Введите пароль для доступа к редактированию контента.</p>
+    <input type="password" id="login-pass" placeholder="Пароль"
+           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <p class="login-error" id="login-error"></p>
+    <button class="btn btn--primary" id="login-btn">Войти</button>
+    <p class="muted" style="margin-top:14px;font-size:12.5px;">
+      Пароль по умолчанию: <code>leader2025</code> — смените его в <code>js/admin.js</code>.
+    </p>
+    <a href="index.html" class="btn btn--ghost btn--sm" style="margin-top:8px;">← На главную</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     САМА АДМИНКА
+     ============================================================ -->
+<div class="admin-app" id="admin-app" style="display:none">
+  <header class="topbar">
+    <div class="wrap topbar__in">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">Л</span>
+        <span>Админка<small>управление контентом</small></span>
+      </a>
+      <div class="controls">
+        <button class="icon-btn" id="admin-theme-toggle" title="Тема">🌙</button>
+        <button class="btn btn--ghost btn--sm" id="logout-btn">Выйти</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap admin-wrap">
+    <div class="admin-tabs">
+      <button class="tab is-active" data-tab="cards">🃏 Карточки</button>
+      <button class="tab" data-tab="games">🎮 Игры</button>
+      <button class="tab" data-tab="test">🧠 Тест</button>
+      <button class="tab" data-tab="theory">📚 Теория</button>
+      <button class="tab" data-tab="io">💾 Экспорт / Импорт</button>
+    </div>
+
+    <!-- КАРТОЧКИ -->
+    <section class="admin-section is-active" data-section="cards">
+      <div class="admin-bar">
+        <h3>Карточки с QR</h3>
+        <button class="btn btn--primary btn--sm" data-add="cards">+ Добавить карточку</button>
+      </div>
+      <div id="admin-cards-list" class="admin-list"></div>
+    </section>
+
+    <!-- ИГРЫ -->
+    <section class="admin-section" data-section="games">
+      <div class="admin-bar">
+        <h3>Игра «Найди пару»</h3>
+        <button class="btn btn--primary btn--sm" data-add="pairs">+ Добавить пару</button>
+      </div>
+      <div id="admin-pairs-list" class="admin-list"></div>
+
+      <div class="admin-bar" style="margin-top:24px;">
+        <h3>Игра «Угадай стиль»</h3>
+        <button class="btn btn--primary btn--sm" data-add="style">+ Добавить вопрос</button>
+      </div>
+      <div id="admin-style-list" class="admin-list"></div>
+
+      <div class="admin-bar" style="margin-top:24px;">
+        <h3>Игра «Собери качества»</h3>
+        <button class="btn btn--primary btn--sm" data-add="qual">+ Добавить качество</button>
+      </div>
+      <div id="admin-qual-list" class="admin-list"></div>
+    </section>
+
+    <!-- ТЕСТ -->
+    <section class="admin-section" data-section="test">
+      <div class="admin-bar">
+        <h3>Вопросы теста</h3>
+        <button class="btn btn--primary btn--sm" data-add="quiz">+ Добавить вопрос</button>
+      </div>
+      <div id="admin-quiz-list" class="admin-list"></div>
+
+      <div class="admin-bar" style="margin-top:24px;">
+        <h3>Результаты теста</h3>
+      </div>
+      <div id="admin-results-list" class="admin-list"></div>
+
+      <div class="admin-bar" style="margin-top:24px;">
+        <h3>Симулятор</h3>
+        <button class="btn btn--primary btn--sm" data-add="sim">+ Добавить ситуацию</button>
+      </div>
+      <div id="admin-sim-list" class="admin-list"></div>
+    </section>
+
+    <!-- ТЕОРИЯ -->
+    <section class="admin-section" data-section="theory">
+      <div class="admin-bar">
+        <h3>Разделы теории</h3>
+        <button class="btn btn--primary btn--sm" data-add="theory">+ Добавить раздел</button>
+      </div>
+      <div id="admin-theory-list" class="admin-list"></div>
+    </section>
+
+    <!-- ЭКСПОРТ / ИМПОРТ -->
+    <section class="admin-section" data-section="io">
+      <div class="panel">
+        <h3>💾 Экспорт данных</h3>
+        <p class="muted">Скачайте текущие данные в формате JSON. Так вы можете обновить файлы в папке <code>data/</code>.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn--primary btn--sm" data-export="cards">cards.json</button>
+          <button class="btn btn--primary btn--sm" data-export="games">games.json</button>
+          <button class="btn btn--primary btn--sm" data-export="test">test.json</button>
+          <button class="btn btn--primary btn--sm" data-export="theory">theory.json</button>
+          <button class="btn btn--gold btn--sm" data-export="all">📦 Скачать всё</button>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:16px;">
+        <h3>📥 Импорт данных</h3>
+        <p class="muted">Загрузите JSON-файл — данные сохранятся в браузере и сразу появятся на сайте.</p>
+        <input type="file" accept=".json" id="import-file">
+        <div class="feedback info" id="import-msg"></div>
+      </div>
+
+      <div class="panel" style="margin-top:16px;">
+        <h3>🧹 Сброс</h3>
+        <p class="muted">Удалить все сохранённые в браузере правки. Вернутся данные из файлов в папке <code>data/</code>.</p>
+        <button class="btn btn--danger btn--sm" id="reset-btn">Сбросить к исходным</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="js/data-loader.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+/* ============================================================
+   АНИМАЦИИ И ПЕРЕХОДЫ
+   ============================================================ */
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1);}
+  33%{transform:translate(60px,-40px) scale(1.1);}
+  66%{transform:translate(-40px,50px) scale(.95);}
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:.35;}
+  50%{transform:scale(1.15);opacity:.5;}
+}
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(16px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-8px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes pop{
+  0%{transform:scale(.5);opacity:0;}
+  70%{transform:scale(1.15);}
+  100%{transform:scale(1);opacity:1;}
+}
+
+/* Появление при скролле */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
+.reveal.is-visible{opacity:1;transform:none;}
+
+/* Пульс фокуса */
+@keyframes glow{
+  0%,100%{box-shadow:0 0 0 0 var(--accent-soft);}
+  50%{box-shadow:0 0 0 12px transparent;}
+}
+
+/* Уважение к пользовательским настройкам */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+  .reveal{opacity:1;transform:none;}
+}

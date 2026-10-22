@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лидерство — интерактивная платформа</title>
+<meta name="description" content="Проект по дисциплине «Лидерство»: теория, игры, тест, симулятор и карточки с QR.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- Анимированный фон -->
+<div class="bg" aria-hidden="true">
+  <div class="bg__blob bg__blob--1"></div>
+  <div class="bg__blob bg__blob--2"></div>
+  <div class="bg__blob bg__blob--3"></div>
+  <div class="bg__grid"></div>
+</div>
+
+<!-- Шапка -->
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="logo" href="#home">
+      <span class="logo__mark">Л</span>
+      <span>Лидерство<small>интерактивная платформа</small></span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#home">Главная</a>
+      <a href="#theory">Теория</a>
+      <a href="#games">Игры</a>
+      <a href="#quiz">Тест</a>
+      <a href="#sim">Симулятор</a>
+      <a href="#cards">Карточки</a>
+    </nav>
+
+    <div class="controls">
+      <button class="icon-btn" id="sound-toggle" title="Звук" aria-label="Вкл/выкл звук">🔊</button>
+      <button class="icon-btn" id="theme-toggle" title="Тема" aria-label="Сменить тему">🌙</button>
+      <button class="burger" id="burger" aria-label="Меню">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ============================================================
+       ГЛАВНАЯ
+       ============================================================ -->
+  <section class="page is-active" data-page="home">
+    <div class="wrap">
+
+      <!-- HERO -->
+      <div class="hero">
+        <span class="hero__badge">Проект по дисциплине «Лидерство» · РЭУ им. Г.В. Плеханова</span>
+        <h1>Лидерство и корпоративная культура</h1>
+        <p>Как лидер формирует ценности организации и почему культура компании — это отражение её руководителя. Теория, игры, тест и симулятор — всё в одном месте.</p>
+        <div class="hero__actions">
+          <a class="btn btn--gold" href="#games" data-sound="click">🎮 Играть</a>
+          <a class="btn btn--white" href="#theory" data-sound="click">📚 Учить</a>
+          <a class="btn btn--ghost hero__ghost" href="#quiz" data-sound="click">🧠 Пройти тест</a>
+        </div>
+        <div class="hero__deco" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- СТАТИСТИКА -->
+      <div class="stats-row" id="stats-row">
+        <div class="stat">
+          <div class="stat__num" data-count="6">0</div>
+          <div class="stat__label">разделов теории</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="3">0</div>
+          <div class="stat__label">мини-игры</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="12">0</div>
+          <div class="stat__label">вопросов в тесте</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="13">0</div>
+          <div class="stat__label">QR-карточек</div>
+        </div>
+      </div>
+
+      <!-- О ПРОЕКТЕ -->
+      <section class="home-block reveal">
+        <h2 class="section-title">О проекте</h2>
+        <p class="section-sub">Учебный проект по дисциплине «Лидерство», тема — формирование корпоративной культуры и ценностей организации.</p>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-card__icon">🎯</div>
+            <h4>Цель</h4>
+            <p>Показать, как стиль лидера напрямую формирует корпоративную культуру, и дать инструменты для самооценки.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card__icon">📖</div>
+            <h4>Основа</h4>
+            <p>Классические теории лидерства: Левин, Херси—Бланшар, Бёрнс, Басс, Гоулман, а также модель культуры Э. Шейна.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card__icon">🧠</div>
+            <h4>Формат</h4>
+            <p>Интерактив: три игры, тест из 12 вопросов, симулятор с 5 ситуациями и печатные QR-карточки для группы.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ЧТО ВНУТРИ -->
+      <section class="home-block reveal">
+        <h2 class="section-title">Что внутри</h2>
+        <p class="section-sub">Пять интерактивных разделов, связанных между собой.</p>
+        <div class="cards-3" id="home-cards">
+          <!-- заполняется из main.js -->
+        </div>
+      </section>
+
+      <!-- КАК ЭТО РАБОТАЕТ -->
+      <section class="home-block reveal">
+        <h2 class="section-title">Как это работает</h2>
+        <p class="section-sub">Пройди путь от теории до практики за 4 шага.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step__num">01</div>
+            <h4>Изучи теорию</h4>
+            <p>Шесть разделов: стили, теории, качества, культура, кейсы.</p>
+          </div>
+          <div class="step">
+            <div class="step__num">02</div>
+            <h4>Закрепи в играх</h4>
+            <p>Три мини-игры на термины, стили и качества лидера.</p>
+          </div>
+          <div class="step">
+            <div class="step__num">03</div>
+            <h4>Пройди тест</h4>
+            <p>12 вопросов — узнаешь свой доминирующий стиль лидерства.</p>
+          </div>
+          <div class="step">
+            <div class="step__num">04</div>
+            <h4>Проверь в симуляторе</h4>
+            <p>5 рабочих ситуаций и разбор твоих решений в конце.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ЦИТАТА -->
+      <section class="home-block reveal">
+        <blockquote class="quote">
+          <div class="quote__mark">“</div>
+          <p>Культура создаётся лидерами. То, что лидер поощряет и наказывает, и становится реальными ценностями компании.</p>
+          <footer>— Эдгар Шейн, <span>теоретик организационной культуры</span></footer>
+        </blockquote>
+      </section>
+
+      <!-- CTA -->
+      <section class="home-block reveal">
+        <div class="cta">
+          <div class="cta__text">
+            <h2>Узнай свой стиль лидерства</h2>
+            <p>12 вопросов · 2 минуты · без регистрации</p>
+          </div>
+          <a class="btn btn--gold" href="#quiz" data-sound="click">Пройти тест →</a>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <!-- ТЕОРИЯ -->
+  <section class="page" data-page="theory">
+    <div class="wrap">
+      <h1 class="section-title">Теория</h1>
+      <p class="section-sub">Шесть блоков: от определения лидерства до связи лидера с корпоративной культурой.</p>
+      <div id="theory-box"></div>
+    </div>
+  </section>
+
+  <!-- ИГРЫ -->
+  <section class="page" data-page="games">
+    <div class="wrap">
+      <h1 class="section-title">Игры</h1>
+      <p class="section-sub">Три мини-игры для закрепления терминов, стилей и качеств лидера.</p>
+
+      <div class="tabs">
+        <button class="tab is-active" data-game="pairs">🃏 Найди пару</button>
+        <button class="tab" data-game="style">🎯 Угадай стиль</button>
+        <button class="tab" data-game="qualities">⭐ Собери качества</button>
+      </div>
+
+      <div class="game is-active" id="game-pairs">
+        <div class="panel">
+          <div class="panel__head">
+            <h3>Найди пару «термин — определение»</h3>
+            <div class="stats"><span>Ходы: <b id="pairs-moves">0</b></span><span>Найдено: <b id="pairs-found">0</b>/6</span></div>
+          </div>
+          <div class="mem-grid" id="pairs-grid"></div>
+          <div class="feedback info" id="pairs-msg"></div>
+          <div style="margin-top:16px;"><button class="btn btn--ghost btn--sm" id="pairs-restart">🔄 Новая игра</button></div>
+        </div>
+      </div>
+
+      <div class="game" id="game-style">
+        <div class="panel">
+          <div class="panel__head">
+            <h3>Угадай стиль лидера</h3>
+            <div class="stats"><span>Вопрос: <b id="style-num">1</b>/8</span><span>Очки: <b id="style-score">0</b></span></div>
+          </div>
+          <div class="progress"><div class="progress__bar" id="style-bar"></div></div>
+          <div id="style-body"></div>
+        </div>
+      </div>
+
+      <div class="game" id="game-qualities">
+        <div class="panel">
+          <div class="panel__head">
+            <h3>Собери качества лидера</h3>
+            <div class="stats"><span>Выбрано: <b id="q-selected">0</b></span></div>
+          </div>
+          <p class="muted">Нажми на те качества, которые действительно помогают лидеру. Затем нажми «Проверить».</p>
+          <div class="chips" id="qualities-chips"></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn--primary btn--sm" id="qualities-check">✅ Проверить</button>
+            <button class="btn btn--ghost btn--sm" id="qualities-reset">🔄 Заново</button>
+          </div>
+          <div class="feedback info" id="qualities-msg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТЕСТ -->
+  <section class="page" data-page="quiz">
+    <div class="wrap">
+      <h1 class="section-title">Тест «Какой ты лидер?»</h1>
+      <p class="section-sub">12 вопросов. Отвечай честно — здесь нет «правильных» ответов, есть твой стиль.</p>
+      <div id="quiz-box">
+        <div class="panel">
+          <div class="progress"><div class="progress__bar" id="quiz-bar"></div></div>
+          <div class="panel__head"><h3 id="quiz-counter">Вопрос 1 из 12</h3></div>
+          <div id="quiz-body"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- СИМУЛЯТОР -->
+  <section class="page" data-page="sim">
+    <div class="wrap">
+      <h1 class="section-title">Симулятор решений</h1>
+      <p class="section-sub">5 ситуаций. Выбери, как бы ты поступил — в конце получишь разбор.</p>
+      <div id="sim-box">
+        <div class="panel">
+          <div class="progress"><div class="progress__bar" id="sim-bar"></div></div>
+          <div class="panel__head"><h3 id="sim-counter">Ситуация 1 из 5</h3></div>
+          <div id="sim-body"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАРТОЧКИ С QR -->
+  <section class="page" data-page="cards">
+    <div class="wrap">
+      <h1 class="section-title">Карточки с QR-кодами</h1>
+      <p class="section-sub no-print">Наведи камеру телефона на QR-код — откроется нужный раздел. Нажми «Распечатать», чтобы получить карточки для группы.</p>
+      <div class="no-print" style="margin-bottom:20px;">
+        <button class="btn btn--primary" onclick="window.print()">🖨 Распечатать</button>
+      </div>
+      <div class="qr-grid" id="qr-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <span>© Проект по дисциплине «Лидерство» · РЭУ им. Г.В. Плеханова</span>
+    <a href="admin.html" class="muted">⚙️ Админ-панель</a>
+  </div>
+</footer>
+
+<script src="js/data-loader.js"></script>
+<script src="js/main.js"></script>
+<script src="js/games.js"></script>
+<script src="js/test.js"></script>
+</body>
+</html>
